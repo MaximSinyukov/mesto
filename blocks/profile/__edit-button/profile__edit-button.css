@@ -3,6 +3,7 @@
   height: 24px;
   background-image: url(../../../images/profile__edit-button.svg);
   background-color: black;
+  background-repeat: no-repeat;
   border: none;
   margin-top: 37px;
 }
