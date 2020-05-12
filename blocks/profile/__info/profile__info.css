@@ -1,0 +1,25 @@
+@import url(../__author/profile__author.css);
+@import url(../__edit-button/profile__edit-button.css);
+@import url(../__subject/profile__subject.css);
+
+.profile__info {
+  width: 38.1%;
+  display: grid;
+  margin-right: 27.9%;
+  grid-template-columns: auto 24px;
+}
+
+@media (max-width : 1023px) {
+  .profile__info {
+    margin-right: 15%;
+  }
+}
+
+@media (max-width : 767px) {
+  .profile__info {
+    width: 100%;
+    margin-right: 0;
+    text-align: center;
+    justify-content: center;
+  }
+}
