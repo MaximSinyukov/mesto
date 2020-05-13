@@ -16,3 +16,9 @@
   width: 100%;
   height: 100%;
 }
+
+@media (max-device-height : 530px) {
+  .popup {
+    position: absolute;
+  }
+}
