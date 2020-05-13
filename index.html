@@ -15,56 +15,56 @@
       <img class="profile__avatar" src="./images/profile__avatar.jpg" alt="Аватарка">
       <div class="profile__info">
         <p class="profile__author">Жак-Ив Кусто</p>
-        <button class="profile__edit-button"></button>
+        <button type="button" class="profile__edit-button"></button>
         <p class="profile__subject">Исследователь океана</p>
       </div>
-      <button class="profile__add-button"></button>
-    </section>
-    <section class="popup">
-      <form class="popup__container">
-        <p class="popup__title">Редактировать профиль</p>
-        <input type="text" class="popup__form-name" placeholder="Имя" required>
-        <input type="text" class="popup__form-subject" placeholder="О себе" required>
-        <button type="submit" class="popup__submit-button">Сохранить</button>
-      </form>
-      <button class="popup__close-button"></button>
+      <button type="button" class="profile__add-button"></button>
     </section>
     <section class="elements">
       <div class="element">
-        <img class="element__image" src="./images/elements/GorkyPark.jpg" alt="Парк Горького">
+        <img class="element__image" src="./images/elements/gorkypark.jpg" alt="фонтаны одного цвета бьющие из земли между которыми можно побегать">
         <p class="element__text">Парк Горького</p>
-        <img class="element__heart" src="./images/elements__heart.svg" alt="Сердешко">
+        <button type="button" class="element__like-button"></button>
       </div>
       <div class="element">
-        <img class="element__image" src="./images/elements/SparrowHills.jpg" alt="Метро Воробьевы горы">
+        <img class="element__image" src="./images/elements/sparrowhills.jpg" alt="пасмурный день у набережной возле воробьевых гор">
         <p class="element__text">Воробьевы горы</p>
-        <img class="element__heart" src="./images/elements__heart.svg" alt="Сердешко">
+        <button type="button" class="element__like-button"></button>
       </div>
       <div class="element">
-        <img class="element__image" src="./images/elements/Tsaritsyno.jpg" alt="Фонтаны">
+        <img class="element__image" src="./images/elements/tsaritsyno.jpg" alt="разноцветные фонтаны в ночи царицынского парка">
         <p class="element__text">Царицыно</p>
-        <img class="element__heart" src="./images/elements__heart.svg" alt="Сердешко">
+        <button type="button" class="element__like-button"></button>
       </div>
       <div class="element">
-        <img class="element__image" src="./images/elements/VDNH.jpg" alt="Павильон">
+        <img class="element__image" src="./images/elements/vdnh.jpg" alt="один из самых больших павильонов вднх освещенный в ночи">
         <p class="element__text">ВДНХ</p>
-        <img class="element__heart" src="./images/elements__heart.svg" alt="Сердешко">
+        <button type="button" class="element__like-button"></button>
       </div>
       <div class="element">
-        <img class="element__image" src="./images/elements/VDNH2.jpg" alt="Парк">
+        <img class="element__image" src="./images/elements/vdnh2.jpg" alt="дорожка средь деревьев возле колоса на вднх">
         <p class="element__text">ВДНХ</p>
-        <img class="element__heart" src="./images/elements__heart.svg" alt="Сердешко">
+        <button type="button" class="element__like-button"></button>
       </div>
       <div class="element">
-        <img class="element__image" src="./images/elements/Kolomenskoe.jpg" alt="Деревья">
+        <img class="element__image" src="./images/elements/kolomenskoe.jpg" alt="закат позади пары деревьев в коломенском">
         <p class="element__text">Коломенское</p>
-        <img class="element__heart" src="./images/elements__heart.svg" alt="Сердешко">
+        <button type="button" class="element__like-button"></button>
       </div>
     </section>
   </main>
   <footer class="footer">
     <p class="footer__text">&#169; 2020 Mesto Russia</p>
   </footer>
+  <div class="popup">
+    <form class="popup__container">
+      <p class="popup__title">Редактировать профиль</p>
+      <input type="text" class="popup__text-form" placeholder="Имя" id="name" required>
+      <input type="text" class="popup__text-form" placeholder="О себе" id="subject" required>
+      <button type="submit" class="popup__submit-button">Сохранить</button>
+    </form>
+    <button type="button" class="popup__close-button"></button>
+  </div>
 <script src="./index.js"></script>
 </body>
 </html>

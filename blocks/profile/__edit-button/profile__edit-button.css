@@ -4,8 +4,12 @@
   background-image: url(../../../images/profile__edit-button.svg);
   background-color: black;
   background-repeat: no-repeat;
-  border: none;
-  margin-top: 37px;
+  background-position: center;
+  border: 1px solid #fff;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin: auto 0;
+  outline: none;
 }
 
 .profile__edit-button:hover {
@@ -24,6 +28,5 @@
   .profile__edit-button {
     width: 18px;
     height: 18px;
-    background-image: url(../../../images/profile__edit-button-mobile.svg);
   }
 }

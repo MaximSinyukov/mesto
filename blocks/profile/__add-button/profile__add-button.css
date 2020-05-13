@@ -3,7 +3,9 @@
   height: 50px;
   background-image: url(../../../images/profile__add-button.svg);
   background-color: black;
-  border: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 2px solid #fff;
   margin: auto 0;
 }
 
@@ -22,6 +24,5 @@
 @media (max-width : 500px) {
   .profile__add-button {
     width: 282px;
-    background-image: url(../../../images/profile__add-button-mobile.svg);
   }
 }

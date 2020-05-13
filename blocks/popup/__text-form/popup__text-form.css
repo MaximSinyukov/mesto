@@ -1,4 +1,4 @@
-.popup__form-subject {
+.popup__text-form {
   width: 358px;
   font-weight: normal;
   font-size: 14px;
@@ -11,7 +11,7 @@
 }
 
 @media (max-width : 550px) {
-  .popup__form-subject {
+  .popup__text-form {
     width: 83.256%;
   }
 }

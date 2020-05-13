@@ -1,15 +1,14 @@
 @import url(./__close-button/popup__close-button.css);
 @import url(./__container/popup__container.css);
 @import url(./__title/popup__title.css);
-@import url(./__form-name/popup__form-name.css);
-@import url(./__form-subject/popup__form-subject.css);
+@import url(./__text-form/popup__text-form.css);
 @import url(./__submit-button/popup__submit-button.css);
 
 .popup {
   display: none;
   flex-direction: column;
   background-color: rgba(0, 0, 0, .5);
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;

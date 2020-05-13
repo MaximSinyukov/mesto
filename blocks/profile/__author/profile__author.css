@@ -1,5 +1,5 @@
 .profile__author {
-  font-weight: medium;
+  font-weight: 500;
   font-size: 42px;
   line-height: 56px;
   color: #fff;
@@ -9,7 +9,7 @@
 
 @media (max-width : 767px) {
   .profile__author {
-    margin: 14px auto 3px;
+    margin: 0 auto 3px;
   }
 }
 
