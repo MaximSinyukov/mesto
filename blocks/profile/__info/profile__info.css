@@ -6,7 +6,6 @@
   margin-bottom: 20px;
   margin: 14px 27.9% 20px 0;
   grid-template-columns: auto 24px;
-  border: 1px solid red;
 }
 
 @media (max-width : 1023px) {
