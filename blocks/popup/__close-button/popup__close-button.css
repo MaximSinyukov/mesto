@@ -3,27 +3,19 @@
   height: 47px;
   border: none;
   padding: 0;
-  margin: 0 auto;
   background-image: url(../../../images/popup__close-icon.svg);
   background-color: transparent;
   background-position: center;
   background-repeat: no-repeat;
-  display: flex;
+  align-self: flex-end;
   position: relative;
+  bottom: 47px;
+  left: 45.5px;
   outline: none;
-  bottom: 387.5px;
-  left: 232.75px;
 }
 
 .popup__close-button:hover {
   transition: opacity 1s linear;
   opacity: .6;
   cursor: pointer;
-}
-
-@media (max-width : 550px) {
-  .popup__close-button {
-    bottom: 364.5px;
-    left: 127.75px;
-  }
 }
