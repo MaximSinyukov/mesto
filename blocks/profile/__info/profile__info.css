@@ -1,12 +1,11 @@
 .profile__info {
-  width: 38.1%;
   display: grid;
   margin-right: 27.9%;
   margin-top: 14px;
   margin-bottom: 20px;
   margin: 14px 27.9% 20px 0;
   grid-template-columns: auto 24px;
-  grid-template-rows: auto;
+  grid-template-rows: 2.5fr 1fr;
 }
 
 @media (max-width : 1023px) {
