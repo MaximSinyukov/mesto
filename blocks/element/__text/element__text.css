@@ -1,8 +1,12 @@
 .element__text {
   grid-column: 1;
+  grid-row: 2;
   font-weight: 900;
   font-size: 24px;
   line-height: 29px;
   color: black;
-  margin: 25px 0 25px 21px;
+  margin: 25px 0 31px 21px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

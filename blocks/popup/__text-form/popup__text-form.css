@@ -13,5 +13,10 @@
 @media (max-width : 550px) {
   .popup__text-form {
     width: 83.256%;
+    margin: 0 auto 20px;
+    position: relative;
+    bottom: 13px;
+    font-size: 12px;
+    line-height: 15px;
   }
 }

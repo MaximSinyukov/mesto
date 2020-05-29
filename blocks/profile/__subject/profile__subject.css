@@ -4,13 +4,18 @@
   line-height: 22px;
   color: #fff;
   margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
 }
 
 
 @media (max-width : 767px) {
   .profile__subject {
     margin: 0 auto;
-    padding-left: 25px;
+    padding-left: 11px;
+    max-width: 340px;
   }
 }
 

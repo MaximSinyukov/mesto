@@ -1,0 +1,7 @@
+.popup__photo-container {
+  display: flex;
+  flex-direction: column;
+  margin: 88px auto auto;
+  width: max-content;
+  max-width: 75vw;
+}
