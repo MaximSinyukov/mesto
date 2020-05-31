@@ -20,5 +20,5 @@
   height: 100%;
   visibility: hidden;
   opacity: 0;
-  transition: visibility 1.01s, opacity 1s ease;
+  transition: visibility .51s, opacity .5s ease;
 }

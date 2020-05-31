@@ -5,3 +5,9 @@
   width: max-content;
   max-width: 75vw;
 }
+
+@media (max-width : 550px) {
+  .popup__photo-container {
+    margin: 130px auto auto;
+  }
+}
