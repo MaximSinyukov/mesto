@@ -102,7 +102,7 @@ const removeItem = function(event) {
 const photoPopup = function(event) {
   if (event.target.className === 'card__image') {
     popupImage.alt = event.target.alt;
-    popupImage.src = event.target.src;
+    popupImage.setAttribute('src', event.target.src);
     popupText.textContent = event.target.alt;
   }
 }
@@ -114,11 +114,11 @@ closeEdit.addEventListener('click', opened);
 closeAdd.addEventListener('click', opened);
 submitEdit.addEventListener('click', opened);
 submitCard.addEventListener('click', opened);
-photoContainer.addEventListener('click', opened);
 closePhoto.addEventListener('click', opened);
 editForm.addEventListener('submit', submitProfile);
 addForm.addEventListener('submit', submitPhoto);
 photoContainer.addEventListener('click', addLike);
 photoContainer.addEventListener('click', removeItem);
 photoContainer.addEventListener('click', photoPopup);
+photoContainer.addEventListener('click', opened);
 
