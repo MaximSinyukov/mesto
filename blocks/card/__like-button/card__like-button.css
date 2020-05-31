@@ -1,4 +1,4 @@
-.element__like-button {
+.card__like-button {
   grid-column: 2;
   grid-row: 2;
   width: 23px;
@@ -12,7 +12,7 @@
   background-position: center;
 }
 
-.element__like-button:hover {
+.card__like-button:hover {
   transition: opacity 1s linear;
   opacity: .6;
   cursor: pointer;

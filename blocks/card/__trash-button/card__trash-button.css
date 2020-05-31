@@ -1,4 +1,4 @@
-.element__trash-button {
+.card__trash-button {
   grid-column: 1/-1;
   grid-row: 1;
   width: 18px;
@@ -15,7 +15,7 @@
   right: 15px;
 }
 
-.element__trash-button:hover {
+.card__trash-button:hover {
   transition: opacity 1s linear;
   opacity: .6;
   cursor: pointer;

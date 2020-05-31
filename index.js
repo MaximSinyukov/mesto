@@ -24,98 +24,101 @@ const initialCards = [
       link: 'https://images.unsplash.com/photo-1518001335271-e104dd5f03f8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'
   }
 ];
-let popupForm = document.querySelector('#form');
-let popupPhoto = document.querySelector('#photo');
-let name = document.querySelector('.profile__author');
-let subject = document.querySelector('.profile__subject');
+const editForm = document.querySelector('#editForm');
 const editButton = document.querySelector('.profile__edit-button');
+const closeEdit = editForm.querySelector('.popup__close-button');
+const submitEdit = editForm.querySelector('.popup__submit-button');
+const editName = editForm.querySelector('#name');
+const editSubject = editForm.querySelector('#subject');
+const addForm = document.querySelector('#addForm');
 const addButton = document.querySelector('.profile__add-button');
-const closeButton = document.querySelector('.page');
-const photoContainer = document.querySelector('.elements');
+const closeAdd = addForm.querySelector('.popup__close-button');
+const submitCard = addForm.querySelector('.popup__submit-button');
+const addName = addForm.querySelector('#place');
+const addSource = addForm.querySelector('#source');
+const author = document.querySelector('.profile__author');
+const subject = document.querySelector('.profile__subject');
+const photoTemplate = document.querySelector('#photo-grid').content;
+const photoContainer = document.querySelector('.cards');
+const popupPhoto = document.querySelector('#photo');
+const popupImage = popupPhoto.querySelector('.popup__photo-image');
+const popupText = popupPhoto.querySelector('.popup__photo-text');
+const closePhoto = popupPhoto.querySelector('.popup__close-button');
 
-function editPopup() {
-  popupForm.querySelector('#name').value = '';
-  popupForm.querySelector('#subject').value = '';
-  popupForm.querySelector('.popup__title').textContent = 'Редактировать профиль';
-  popupForm.classList.toggle('popup_opened');
-  popupForm.querySelector('#name').value = name.textContent;
-  popupForm.querySelector('#name').setAttribute('placeholder', 'Имя');
-  popupForm.querySelector('#subject').value = subject.textContent;
-  popupForm.querySelector('#subject').setAttribute('placeholder', 'О себе');
-  popupForm.querySelector('.popup__submit-button').textContent = 'Сохранить';
+function opened(evt) {
+  if (evt.target.className === 'profile__edit-button') {
+    editForm.classList.toggle('popup_opened');
+    editName.value = author.textContent;
+    editSubject.value = subject.textContent;
+  }
+  if (evt.target.className === 'profile__add-button') {
+    addForm.classList.toggle('popup_opened');
+  }
+  if (evt.target.className === 'card__image') {
+    popupPhoto.classList.toggle('popup_opened');
+  }
+  else {
+    evt.target.closest('.popup').classList.toggle('popup_opened');
+  }
 }
 
-function addPopup() {
-  popupForm.querySelector('#name').value = '';
-  popupForm.querySelector('#subject').value = '';
-  popupForm.querySelector('.popup__title').textContent = 'Новое место';
-  popupForm.querySelector('#name').setAttribute('placeholder', 'Название');
-  popupForm.querySelector('#subject').setAttribute('placeholder', 'Ссылка на картинку');
-  popupForm.querySelector('.popup__submit-button').textContent = 'Создать';
-  popupForm.classList.toggle('popup_opened');
+function createCard(image, text) {
+  const photoBlock = photoTemplate.cloneNode(true);
+  const photoImage = photoBlock.querySelector('.card__image');
+  const photoText = photoBlock.querySelector('.card__text');
+  photoImage.src = image;
+  photoImage.alt = text;
+  photoText.textContent = text;
+  return photoBlock;
 }
 
-function submitValue(evt) {
+function addCard(container, element) {
+  container.prepend(element);
+}
+
+function submitProfile(evt) {
   evt.preventDefault();
-  const inputName = popupForm.querySelector('#name').value;
-  const inputSubject = popupForm.querySelector('#subject').value;
-  if (popupForm.querySelector('.popup__submit-button').textContent === 'Сохранить') {
-    name.textContent = inputName;
-    subject.textContent = inputSubject;
-    popupForm.classList.toggle('popup_opened');
-  } else {
-    const photoTemplate = document.querySelector('#photo-grid').content;
-    const photoElement = photoTemplate.cloneNode(true);
-    photoElement.querySelector('.element__image').setAttribute('src',inputSubject);
-    photoElement.querySelector('.element__image').setAttribute('alt', inputName);
-    photoElement.querySelector('.element__text').textContent = inputName;
-    photoContainer.prepend(photoElement);
-    popupForm.classList.toggle('popup_opened');
-
-  }
+  author.textContent = editName.value;
+  subject.textContent = editSubject.value;
 }
 
-function closePopup(event) {
-  if (event.target.className === 'popup__close-button') {
-    event.target.closest('.popup').classList.toggle('popup_opened');
-  }
+function submitPhoto(evt) {
+  evt.preventDefault();
+  addCard(photoContainer, createCard(addSource.value, addName.value));
 }
 
 const addLike = function(event) {
   if (event.target.id === 'like') {
-    event.target.classList.toggle('element__like-button_active');
+    event.target.classList.toggle('card__like-button_active');
   }
 };
 
 const removeItem = function(event) {
-  if (event.target.className === 'element__trash-button') {
-    event.target.closest('.element').remove();
+  if (event.target.className === 'card__trash-button') {
+    event.target.closest('.card').remove();
   }
 }
 
 const photoPopup = function(event) {
-  if (event.target.className === 'element__image') {
-    const photo = event.target.closest('.element');
-    popupPhoto.querySelector('.popup__photo-image').setAttribute('alt', photo.querySelector('.element__image').getAttribute('alt'));
-    popupPhoto.querySelector('.popup__photo-image').setAttribute('src', photo.querySelector('.element__image').getAttribute('src'));
-    popupPhoto.querySelector('.popup__photo-text').textContent = photo.querySelector('.element__text').textContent;
-    popupPhoto.classList.toggle('popup_opened');
+  if (event.target.className === 'card__image') {
+    popupImage.alt = event.target.alt;
+    popupImage.src = event.target.src;
+    popupText.textContent = event.target.alt;
   }
 }
 
-initialCards.forEach((object) => {
-  const photoTemplate = document.querySelector('#photo-grid').content;
-  const photoElement = photoTemplate.cloneNode(true);
-  photoElement.querySelector('.element__image').setAttribute('src', object.link);
-  photoElement.querySelector('.element__image').setAttribute('alt', object.name);
-  photoElement.querySelector('.element__text').textContent = object.name;
-  photoContainer.append(photoElement);
-});
-
-photoContainer.addEventListener('click', photoPopup);
+initialCards.forEach(function (object) { addCard(photoContainer, createCard(object.link, object.name)) });
+editButton.addEventListener('click', opened);
+addButton.addEventListener('click', opened);
+closeEdit.addEventListener('click', opened);
+closeAdd.addEventListener('click', opened);
+submitEdit.addEventListener('click', opened);
+submitCard.addEventListener('click', opened);
+photoContainer.addEventListener('click', opened);
+closePhoto.addEventListener('click', opened);
+editForm.addEventListener('submit', submitProfile);
+addForm.addEventListener('submit', submitPhoto);
 photoContainer.addEventListener('click', addLike);
 photoContainer.addEventListener('click', removeItem);
-editButton.addEventListener('click', editPopup);
-addButton.addEventListener('click', addPopup);
-closeButton.addEventListener('click', closePopup);
-popupForm.addEventListener('submit', submitValue);
+photoContainer.addEventListener('click', photoPopup);
+

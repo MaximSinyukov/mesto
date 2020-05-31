@@ -20,34 +20,43 @@
       </div>
       <button type="button" class="profile__add-button"></button>
     </section>
-    <section class="elements">
+    <section class="cards">
     </section>
   </main>
   <footer class="footer">
     <p class="footer__text">&#169; 2020 Mesto Russia</p>
   </footer>
-  <div class="popup" id="form">
+  <div class="popup" id="editForm">
     <form class="popup__container">
       <button type="button" class="popup__close-button"></button>
-      <p class="popup__title"></p>
-      <input type="text" class="popup__text-form" id="name" required>
-      <input type="text" class="popup__text-form" id="subject" required>
-      <button type="submit" class="popup__submit-button"></button>
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <input type="text" class="popup__text-form" id="name" placeholder="Имя" required>
+      <input type="text" class="popup__text-form" id="subject" placeholder="О себе" required>
+      <button type="submit" class="popup__submit-button">Сохранить</button>
+    </form>
+  </div>
+  <div class="popup" id="addForm">
+    <form class="popup__container">
+      <button type="button" class="popup__close-button"></button>
+      <h2 class="popup__title">Новое место</h2>
+      <input type="text" class="popup__text-form" id="place" placeholder="Название" required>
+      <input type="text" class="popup__text-form" id="source" placeholder="Ссылка на картинку" required>
+      <button type="submit" class="popup__submit-button">Создать</button>
     </form>
   </div>
   <div class="popup" id="photo">
     <div class="popup__photo-container">
       <button type="button" class="popup__close-button"></button>
-      <img class="popup__photo-image" src="source" alt="">
+      <img class="popup__photo-image" src="//" alt="">
       <p class="popup__photo-text"></p>
     </div>
   </div>
   <template id="photo-grid">
-    <div class="element">
-      <img class="element__image" src="source" alt="">
-      <button type="button" class="element__trash-button"></button>
-      <p class="element__text"></p>
-      <button type="button" class="element__like-button" id="like"></button>
+    <div class="card">
+      <img class="card__image" src="" alt="">
+      <button type="button" class="card__trash-button"></button>
+      <p class="card__text"></p>
+      <button type="button" class="card__like-button" id="like"></button>
     </div>
   </template>
 <script src="./index.js"></script>

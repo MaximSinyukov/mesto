@@ -1,6 +1,6 @@
-@import url(../element/element.css);
+@import url(../card/card.css);
 
-.elements {
+.cards {
   width: 882px;
   margin: 0 auto 66px;
   display: grid;
@@ -9,21 +9,21 @@
 }
 
 @media (max-width : 1023px) {
-  .elements {
+  .cards {
     width: 682px;
     grid-template-columns: repeat(2, 332px);
   }
 }
 
 @media (max-width : 767px) {
-  .elements {
+  .cards {
     width: 332px;
     grid-template-columns: 332px;
   }
 }
 
 @media (max-width : 500px) {
-  .elements {
+  .cards {
     width: 282px;
     grid-template-columns: 282px;
   }
