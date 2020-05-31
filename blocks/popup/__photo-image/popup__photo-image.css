@@ -1,8 +1,7 @@
 .popup__photo-image {
-  width: auto;
-  height: 100%;
   max-width: 75vw;
   max-height: 75vh;
+  object-fit: cover;
   position: relative;
   bottom: 47px;
 }
