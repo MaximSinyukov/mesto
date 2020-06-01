@@ -1,13 +1,16 @@
 .popup__photo-container {
   display: flex;
   flex-direction: column;
-  margin: 88px auto auto;
+  margin: 0 auto;
   width: max-content;
   max-width: 75vw;
+  position: relative;
+  top: 50%;
+  transform: translate(0, calc(-50%  + 36px));
 }
 
 @media (max-width : 550px) {
   .popup__photo-container {
-    margin: 130px auto auto;
+    transform: translate(0, calc(-50%  + 27.5px));
   }
 }
