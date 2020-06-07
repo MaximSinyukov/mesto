@@ -5,7 +5,7 @@
   line-height: 17px;
   color: black;
   padding-bottom: 13px;
-  margin: 0 auto 30px;
+  margin: 0 auto;
   border: 0 none;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
 }
@@ -13,7 +13,7 @@
 @media (max-width : 550px) {
   .popup__text-form {
     width: 83.256%;
-    margin: 0 auto 20px;
+    margin: 0 auto;
     position: relative;
     bottom: 13px;
     font-size: 12px;
