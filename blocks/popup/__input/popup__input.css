@@ -1,4 +1,4 @@
-.popup__text-form {
+.popup__input {
   width: 358px;
   font-weight: normal;
   font-size: 14px;
@@ -11,7 +11,7 @@
 }
 
 @media (max-width : 550px) {
-  .popup__text-form {
+  .popup__input {
     width: 83.256%;
     margin: 0 auto;
     position: relative;
