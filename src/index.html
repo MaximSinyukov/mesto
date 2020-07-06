@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./pages/index.css">
   <title>Mesto</title>
 </head>
 <body class="page">
@@ -27,18 +26,18 @@
     <p class="footer__text">&#169; 2020 Mesto Russia</p>
   </footer>
   <div class="popup" id="editPopup">
-    <form class="popup__container" name="editForm" novalidate>
+    <form class="popup__container" novalidate>
       <button type="button" class="popup__close-button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <input type="text" class="popup__input" id="name" minlength="2" maxlength="40" placeholder="Имя" value="Жак-Ив Кусто" required>
+      <input type="text" class="popup__input" id="name" minlength="2" maxlength="40" placeholder="Имя" value="" required>
       <span class="popup__text-error" id="name-error"></span>
-      <input type="text" class="popup__input" value="Исследователь океана" id="subject" placeholder="О себе" minlength="2" maxlength="200" required>
+      <input type="text" class="popup__input" value="" id="subject" placeholder="О себе" minlength="2" maxlength="200" required>
       <span class="popup__text-error" id="subject-error"></span>
       <button type="submit" class="popup__submit-button">Сохранить</button>
     </form>
   </div>
   <div class="popup" id="addPopup">
-    <form class="popup__container" name="addForm" novalidate>
+    <form class="popup__container" novalidate>
       <button type="button" class="popup__close-button"></button>
       <h2 class="popup__title">Новое место</h2>
       <input type="text" class="popup__input" id="place" placeholder="Название" minlength="1" maxlength="30" required>
@@ -57,12 +56,11 @@
   </div>
   <template id="photo-grid">
     <div class="card">
-      <img class="card__image" src="" alt="">
+      <img class="card__image" alt="">
       <button type="button" class="card__trash-button"></button>
       <p class="card__text"></p>
       <button type="button" class="card__like-button" id="like"></button>
     </div>
   </template>
-<script type="module" src="./scripts/index.js"></script>
 </body>
 </html>

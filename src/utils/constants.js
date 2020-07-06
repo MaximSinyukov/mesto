@@ -24,3 +24,20 @@ export const initialCards = [
     link: 'https://images.unsplash.com/photo-1518001335271-e104dd5f03f8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'
   }
 ];
+
+const editPopup = document.querySelector('#editPopup');
+export const profileForm = editPopup.querySelector('.popup__container');
+export const editButton = document.querySelector('.profile__edit-button');
+const addPopup = document.querySelector('#addPopup');
+export const cardForm = addPopup.querySelector('.popup__container');
+export const addButton = document.querySelector('.profile__add-button');
+export const submitEdit = editPopup.querySelector('.popup__submit-button');
+export const submitAdd = addPopup.querySelector('.popup__submit-button');
+export const formValidationOptions = {
+  formSelector: '.popup__container',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__submit-button',
+  inactiveButtonClass: 'popup__submit-button_type_error',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: '.popup__text-error'
+};

@@ -1,4 +1,4 @@
-import {offButton, onButton} from './utils.js';
+import {offButton, onButton} from '../utils/utils.js';
 
 export class FormValidator {
   constructor(formValidationOptions, form) {

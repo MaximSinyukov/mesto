@@ -1,10 +1,9 @@
-import {openPhotoPopup} from './utils.js'
-
 export class Card {
-  constructor(data, cardSelector) {
+  constructor(data, cardSelector, handleCardClick) {
     this._title = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -16,28 +15,18 @@ export class Card {
     return cardElement;
   }
 
-  _photoListener() {
-    this._element.querySelector('.card__image').addEventListener('click', (event) => {
-      openPhotoPopup(this._title, this._link);
-    });
-  }
-
-  _likeListener() {
-    this._element.querySelector('#like').addEventListener('click', (event) => {
+  _likeEvent() {
       event.target.classList.toggle('card__like-button_active');
-    });
   }
 
-  _trashListener() {
-    this._element.querySelector('.card__trash-button').addEventListener('click', () => {
+  _trashElement() {
       this._element.remove();
-    });
   }
 
   _setEventListeners() {
-    this._photoListener();
-    this._likeListener();
-    this._trashListener();
+    this._element.querySelector('.card__image').addEventListener('click', this._handleCardClick);
+    this._element.querySelector('#like').addEventListener('click', () => this._likeEvent());
+    this._element.querySelector('.card__trash-button').addEventListener('click', () => this._trashElement());
   }
 
   generateCard() {
