@@ -15,6 +15,8 @@ const cardForm = addPopup.querySelector('.popup__container');
 const addButton = document.querySelector('.profile__add-button');
 const submitEdit = editPopup.querySelector('.popup__submit-button');
 const submitAdd = addPopup.querySelector('.popup__submit-button');
+const nameForm = document.querySelector('#name');
+const subjectForm = document.querySelector('#subject');
 
 const profileFormValidator = new FormValidator(formValidationOptions, profileForm);
 profileFormValidator.enableValidation();
@@ -45,18 +47,16 @@ const popupProfile = new PopupWithForm('#editPopup', (newValue) => {
 popupProfile.setEventListeners();
 
 const popupAdd = new PopupWithForm('#addPopup', (newValue) => {
-  const cardsList = new Section({
-    items: [newValue],
-    renderer: (item) => {
-      const {name, object: link} = item;
-      const card = new Card({name, link}, '#photo-grid',
-      () => {
-        popupCard.openPopup({name, link});
-      });
-      const cardElement = card.generateCard();
-      cardsList.addItem(cardElement);
-    },
-  },'.cards');
+  cardsList.renderedItems = [newValue];
+  cardsList.renderer = (item) => {
+        const {name, object: link} = item;
+        const card = new Card({name, link}, '#photo-grid',
+        () => {
+          popupCard.openPopup({name, link});
+        });
+        const cardElement = card.generateCard();
+        cardsList.addItem(cardElement);
+      }
   cardsList.renderItems();
   popupAdd.closePopup();
 });
@@ -66,8 +66,8 @@ editButton.addEventListener('click', () => {
   profileFormValidator.hideInputErrors();
   profileFormValidator.onButton(submitEdit);
   const newInfo = newProfile.getUserInfo();
-  document.querySelector('#name').value = newInfo.name;
-  document.querySelector('#subject').value = newInfo.object;
+  nameForm.value = newInfo.name;
+  subjectForm.value = newInfo.object;
   popupProfile.openPopup();
 });
 
