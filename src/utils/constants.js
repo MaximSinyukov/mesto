@@ -16,7 +16,7 @@ export const initialCards = [
     link: 'https://images.unsplash.com/photo-1589595363745-d842812a9db7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80'
   },
   {
-    name: 'Птичка',
+    name: 'Cиалия',
     link: 'https://images.unsplash.com/photo-1541971126-d98efa910469?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1447&q=80'
   },
   {
@@ -25,14 +25,6 @@ export const initialCards = [
   }
 ];
 
-const editPopup = document.querySelector('#editPopup');
-export const profileForm = editPopup.querySelector('.popup__container');
-export const editButton = document.querySelector('.profile__edit-button');
-const addPopup = document.querySelector('#addPopup');
-export const cardForm = addPopup.querySelector('.popup__container');
-export const addButton = document.querySelector('.profile__add-button');
-export const submitEdit = editPopup.querySelector('.popup__submit-button');
-export const submitAdd = addPopup.querySelector('.popup__submit-button');
 export const formValidationOptions = {
   formSelector: '.popup__container',
   inputSelector: '.popup__input',

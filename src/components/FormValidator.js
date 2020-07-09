@@ -1,4 +1,4 @@
-import {offButton, onButton} from '../utils/utils.js';
+import {formValidationOptions} from '../utils/constants.js';
 
 export class FormValidator {
   constructor(formValidationOptions, form) {
@@ -25,9 +25,9 @@ export class FormValidator {
 
   _toggleButtonState(inputList, buttonElement) {
     if (this._hasInvalidInput(inputList)) {
-      offButton(buttonElement);
+      this.offButton(buttonElement);
     } else {
-      onButton(buttonElement);
+      this.onButton(buttonElement);
     }
   }
 
@@ -48,6 +48,16 @@ export class FormValidator {
   hideInputErrors() {
     const inputList = Array.from(this._form.querySelectorAll(`${this._inputSelector}`));
     inputList.forEach((input) => {this._hideInputError(input)});
+  }
+
+  offButton(buttonElement) {
+    buttonElement.classList.add(`${formValidationOptions.inactiveButtonClass}`);
+    buttonElement.setAttribute('disabled', true);
+  }
+
+  onButton(buttonElement) {
+    buttonElement.classList.remove(`${formValidationOptions.inactiveButtonClass}`);
+    buttonElement.removeAttribute('disabled');
   }
 
   enableValidation() {

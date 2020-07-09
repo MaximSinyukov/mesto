@@ -18,8 +18,7 @@
   },
   "homepage": "https://github.com/MaximBorov/mesto#readme",
   "dependencies": {
-    "core-js": "^3.6.5",
-    "jquery": "^3.5.1"
+    "core-js": "^3.6.5"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",

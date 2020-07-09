@@ -29,9 +29,9 @@
     <form class="popup__container" novalidate>
       <button type="button" class="popup__close-button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <input type="text" class="popup__input" id="name" minlength="2" maxlength="40" placeholder="Имя" value="" required>
+      <input type="text" class="popup__input" id="name" minlength="2" maxlength="40" placeholder="Имя" value="" required name="name">
       <span class="popup__text-error" id="name-error"></span>
-      <input type="text" class="popup__input" value="" id="subject" placeholder="О себе" minlength="2" maxlength="200" required>
+      <input type="text" class="popup__input" value="" id="subject" placeholder="О себе" minlength="2" maxlength="200" required name="object">
       <span class="popup__text-error" id="subject-error"></span>
       <button type="submit" class="popup__submit-button">Сохранить</button>
     </form>
@@ -40,9 +40,9 @@
     <form class="popup__container" novalidate>
       <button type="button" class="popup__close-button"></button>
       <h2 class="popup__title">Новое место</h2>
-      <input type="text" class="popup__input" id="place" placeholder="Название" minlength="1" maxlength="30" required>
+      <input type="text" class="popup__input" id="place" placeholder="Название" minlength="1" maxlength="30" required name="name">
       <span class="popup__text-error" id="place-error"></span>
-      <input type="url" class="popup__input" id="source" placeholder="Ссылка на картинку" required>
+      <input type="url" class="popup__input" id="source" placeholder="Ссылка на картинку" required name="object">
       <span class="popup__text-error" id="source-error"></span>
       <button type="submit" class="popup__submit-button">Создать</button>
     </form>

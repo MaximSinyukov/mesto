@@ -1,34 +1,31 @@
 import {Popup} from './Popup.js';
+import {formValidationOptions} from '../utils/constants.js';
 
 export class PopupWithForm extends Popup {
-  constructor(data, popupSelector, SubmitForm) {
+  constructor(popupSelector, submitForm) {
     super(popupSelector);
-    this._submit = SubmitForm;
-    this._name = this._popup.querySelector(data.name);
-    this._object = this._popup.querySelector(data.object);
+    this._submit = submitForm;
   }
 
   _getInputValues() {
-    this.newProfile = {
-      name: this._name.value,
-      object: this._object.value
-    }
+    this.newProfile = {};
+    const inputList = Array.from(this._popup.querySelectorAll(`${formValidationOptions.inputSelector}`));
+    inputList.forEach((input) => {
+      this.newProfile[`${input.name}`] = input.value;
+    });
     return this.newProfile;
   }
 
   setEventListeners() {
     super.setEventListeners();
-    this._popup.addEventListener('submit', this._submit);
-  }
-
-  openPopup(data) {
-    this._name.value = data.name;
-    this._object.value = data.object;
-    super.openPopup();
+    this._popup.addEventListener('submit', (evt) => {
+      evt.preventDefault();
+      this._submit(this._getInputValues());
+    });
   }
 
   closePopup() {
     super.closePopup();
-    this._popup.removeEventListener('submit', this._submit);
+    this._popup.querySelector(formValidationOptions.formSelector).reset();
   }
 }
