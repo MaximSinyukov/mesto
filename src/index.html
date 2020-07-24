@@ -11,7 +11,10 @@
   </header>
   <main class="main">
     <section class="profile">
-      <img class="profile__avatar" src="./images/profile__avatar.jpg" alt="исследователь жак-ив кусто&#44; фото профиль&#46;">
+      <div class="profile__avatar">
+        <img class="profile__img" src="./images/profile__avatar.jpg" alt="Ваш аватар">
+        <div class="profile__overlay"></div>
+      </div>
       <div class="profile__info">
         <p class="profile__author">Жак-Ив Кусто</p>
         <button type="button" class="profile__edit-button"></button>
@@ -47,6 +50,21 @@
       <button type="submit" class="popup__submit-button">Создать</button>
     </form>
   </div>
+  <div class="popup" id="confirmPopup">
+    <form class="popup__container">
+      <button type="button" class="popup__close-button"></button>
+      <h2 class="popup__title">Вы уверены?</h2>
+      <button type="submit" class="popup__submit-button">Да</button>
+    </form>
+  </div>
+  <div class="popup" id="avatarPopup">
+    <form class="popup__container" novalidate>
+      <button type="button" class="popup__close-button"></button>
+      <h2 class="popup__title">Обновить аватар</h2>
+      <input type="url" class="popup__input popup__input_type_avatar" id="source" placeholder="Ссылка на аватарку" required name="object">
+      <button type="submit" class="popup__submit-button">Сохранить</button>
+    </form>
+  </div>
   <div class="popup" id="photo">
     <div class="popup__photo-container">
       <button type="button" class="popup__close-button"></button>
@@ -60,6 +78,7 @@
       <button type="button" class="card__trash-button"></button>
       <p class="card__text"></p>
       <button type="button" class="card__like-button" id="like"></button>
+      <p class="card__like-counter">0</p>
     </div>
   </template>
 </body>

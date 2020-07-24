@@ -3,7 +3,9 @@
   font-size: 12px;
   font-weight: normal;
   color: red;
-  margin: 5px 36px 0;
+  position: relative;
+  bottom: 13px;
+  margin: 0 36px;
   height: 30px;
 }
 
@@ -14,7 +16,5 @@
     width: 83.256%;
     margin: 5px auto 5px;
     height: 26px;
-    position: relative;
-    bottom: 13px;
   }
 }

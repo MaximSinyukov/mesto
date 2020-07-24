@@ -21,7 +21,7 @@ export class FormValidator {
     const errorElement = this._form.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.add(`${this._inputErrorClass}`);
     errorElement.textContent = errorMessage;
-  };
+  }
 
   _toggleButtonState(inputList, buttonElement) {
     if (this._hasInvalidInput(inputList)) {
@@ -43,7 +43,7 @@ export class FormValidator {
     const errorElement = this._form.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.remove(`${this._inputErrorClass}`);
     errorElement.textContent = '';
-  };
+  }
 
   hideInputErrors() {
     const inputList = Array.from(this._form.querySelectorAll(`${this._inputSelector}`));

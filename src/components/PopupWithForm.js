@@ -4,6 +4,7 @@ import {formValidationOptions} from '../utils/constants.js';
 export class PopupWithForm extends Popup {
   constructor(popupSelector, submitForm) {
     super(popupSelector);
+    this._submitButton = this._popup.querySelector('.popup__submit-button');
     this._submit = submitForm;
   }
 
@@ -14,6 +15,10 @@ export class PopupWithForm extends Popup {
       this.newProfile[`${input.name}`] = input.value;
     });
     return this.newProfile;
+  }
+
+  loadingResult(loadingText) {
+      this._submitButton.textContent = loadingText;
   }
 
   setEventListeners() {
