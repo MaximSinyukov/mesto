@@ -12,20 +12,14 @@ export class Api {
     }
   }
 
-  _handleResponseError(err){
-    return Promise.reject(err.message);
-  }
-
   getUser() {
     return fetch(`${this.url}/users/me`, { headers: this.headers})
       .then(this._handleResponse)
-      .catch(this._handleResponseError);
   }
 
   getInitialCards() {
     return fetch(`${this.url}/cards`, { headers: this.headers})
       .then(this._handleResponse)
-      .catch(this._handleResponseError);
   }
 
   updateProfileInfo(data) {
@@ -40,7 +34,6 @@ export class Api {
       }
     )
       .then(this._handleResponse)
-      .catch(this._handleResponseError);
   }
 
   updateProfileAvatar(data) {
@@ -54,7 +47,6 @@ export class Api {
       }
     )
       .then(this._handleResponse)
-      .catch(this._handleResponseError);
   }
 
   createCard(data) {
@@ -69,7 +61,6 @@ export class Api {
       }
     )
       .then(this._handleResponse)
-      .catch(this._handleResponseError);
   }
 
   deleteCard(id) {
@@ -80,7 +71,6 @@ export class Api {
       }
     )
       .then(this._handleResponse)
-      .catch(this._handleResponseError);
   }
 
   createLike(id) {
@@ -91,7 +81,6 @@ export class Api {
       }
     )
       .then(this._handleResponse)
-      .catch(this._handleResponseError);
   }
 
   deleteLike(id) {
@@ -102,6 +91,5 @@ export class Api {
       }
     )
       .then(this._handleResponse)
-      .catch(this._handleResponseError);
   }
 }
