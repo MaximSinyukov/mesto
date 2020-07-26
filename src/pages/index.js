@@ -56,7 +56,7 @@ const popupAvatar = new PopupWithForm('#avatarPopup', (newAvatar) => {
   popupAvatar.loadingResult('Сохраняем...');
   api.updateProfileAvatar(newAvatar)
     .then((res) => {
-      newProfile.avatar.src = res.avatar;
+      newProfile.setUserAvatar(res);
     })
     .catch((err) => {
       console.log(`Ошибка при загрузке аватарки: ${err}`);
@@ -73,51 +73,55 @@ const popupConfirm = new PopupWithForm('#confirmPopup', () => {
 });
 popupConfirm.setEventListeners();
 
+const createCard = (item, userId) => {
+    const card = new Card(item, '#photo-grid', userId, popupConfirm,
+    () => {
+      api.deleteCard(card.cardId)
+        .then(() => {
+          card.deleteElement();
+          card.deleteListener();
+        })
+        .catch((err) => {
+          console.log(`Карточка не удаляется: ${err}`);
+        })
+        .finally(() => {
+          popupConfirm.closePopup();
+          popupConfirm.loadingResult('Да');
+        })
+      },
+      (id) => {
+        api.createLike(id)
+          .then((res) => {
+            card.likes = res.likes;
+            card.element.querySelector('.card__like-counter').textContent = res.likes.length;
+          })
+          .catch((err) => {
+            console.log(`Ошибка в добавлении лайка: ${err}`);
+          })
+      },
+      (id) => {
+        api.deleteLike(id)
+          .then((res) => {
+            card.likes = res.likes;
+            card.element.querySelector('.card__like-counter').textContent = res.likes.length;
+          })
+          .catch((err) => {
+            console.log(`Ошибка в удалении лайка: ${err}`);
+          })
+      },
+    () => {
+      popupCard.openPopup(item);
+    });
+    return card.generateCard();
+}
+
 const popupAdd = new PopupWithForm('#addPopup', (newValue) => {
   popupAdd.loadingResult('Создание...');
   api.createCard(newValue)
     .then((cardData) => {
-      const cardsList = new Section({items: [cardData], renderer: (item) => {
-        const card = new Card(item, '#photo-grid', item.owner._id, popupConfirm,
-        () => {
-          api.deleteCard(card.cardId)
-            .then(() => {
-              card.deleteElement();
-              card.deleteListener();
-            })
-            .catch((err) => {
-              console.log(`Карточка не удаляется: ${err}`);
-            })
-            .finally(() => {
-              popupConfirm.closePopup();
-              popupConfirm.loadingResult('Да');
-            })
-          },
-          (id) => {
-            api.createLike(id)
-              .then((res) => {
-                card.likes = res.likes;
-                card.element.querySelector('.card__like-counter').textContent = res.likes.length;
-              })
-              .catch((err) => {
-                console.log(`Ошибка в добавлении лайка: ${err}`);
-              })
-          },
-          (id) => {
-            api.deleteLike(id)
-              .then((res) => {
-                card.likes = res.likes;
-                card.element.querySelector('.card__like-counter').textContent = res.likes.length;
-              })
-              .catch((err) => {
-                console.log(`Ошибка в удалении лайка: ${err}`);
-              })
-          },
-        () => {
-          popupCard.openPopup(item);
-        });
-        const cardElement = card.generateCard();
-        cardsList.addItem(cardElement);
+      const cardsList = new Section({items: [cardData], renderer:
+      (item) => {
+        cardsList.addItem(createCard(item, item.owner._id));
       },
     }, '.cards');
       cardsList.renderItems();
@@ -137,7 +141,7 @@ popupAdd.setEventListeners();
 api.getUser()
   .then((userData) => {
     newProfile.setUserInfo({name: userData.name, object: userData.about});
-    newProfile.avatar.src = userData.avatar;
+    newProfile.setUserAvatar(userData);
     return userData._id;
   })
   .then((userId) => {
@@ -146,47 +150,7 @@ api.getUser()
       const cardsList = new Section({
         items: arr,
         renderer: (item) => {
-          const card = new Card(item, '#photo-grid', userId,
-          popupConfirm,
-          () => {
-            api.deleteCard(card.cardId)
-              .then(() => {
-                card.deleteElement();
-                card.deleteListener();
-              })
-              .catch((err) => {
-                console.log(`Карточка не удаляется: ${err}`);
-              })
-              .finally(() => {
-                popupConfirm.closePopup();
-                popupConfirm.loadingResult('Да');
-              })
-          },
-          (id) => {
-            api.createLike(id)
-              .then((res) => {
-                card.likes = res.likes;
-                card.element.querySelector('.card__like-counter').textContent = res.likes.length;
-              })
-              .catch((err) => {
-                console.log(`Ошибка в добавлении лайка: ${err}`);
-              })
-          },
-          (id) => {
-            api.deleteLike(id)
-              .then((res) => {
-                card.likes = res.likes;
-                card.element.querySelector('.card__like-counter').textContent = res.likes.length;
-              })
-              .catch((err) => {
-                console.log(`Ошибка в удалении лайка: ${err}`);
-              })
-          },
-          () => {
-            popupCard.openPopup(item);
-          });
-          const cardElement = card.generateCard();
-          cardsList.addItems(cardElement);
+          cardsList.addItems(createCard(item, userId));
         },
       },'.cards');
       cardsList.renderItems();
@@ -215,6 +179,6 @@ addButton.addEventListener('click', () => {
 })
 
 editAvatar.addEventListener('click', () => {
-  inputAvatar.value = newProfile.avatar.src;
+  inputAvatar.value = newProfile.getUserAvatar();
   popupAvatar.openPopup();
 })
