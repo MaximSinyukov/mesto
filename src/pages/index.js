@@ -137,7 +137,7 @@ const popupAdd = new PopupWithForm('#addPopup', (newValue) => {
 popupAdd.setEventListeners();
 
 /////////////рендер страницы
-
+Promise.all([
 api.getUser()
   .then((userData) => {
     newProfile.setUserInfo({name: userData.name, object: userData.about});
@@ -159,8 +159,8 @@ api.getUser()
       console.log(`Ошибка в рендере массива карт: ${err}`);
     })
   })
-  .catch((err) => {console.log(`Ошибка в полученных данных: ${err}`)});
-
+  .catch((err) => {console.log(`Ошибка в полученных данных: ${err}`)})//;
+])
 //////////////Установка слушателей на кнопки
 
 editButton.addEventListener('click', () => {

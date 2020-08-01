@@ -31,6 +31,8 @@ export class PopupWithForm extends Popup {
 
   closePopup() {
     super.closePopup();
-    this._popup.querySelector(formValidationOptions.formSelector).reset();
+    setTimeout(() => {
+      this._popup.querySelector(formValidationOptions.formSelector).reset();
+    }, 500);
   }
 }

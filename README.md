@@ -10,4 +10,4 @@
 * манипуляции с CSS через JS
 * разобраны основные события от взаимодействия с пользователем
 
-Ссылка на проект: https://maximborov.github.io/mesto/index.html
+Ссылка на проект: https://maximborov.github.io/mesto
