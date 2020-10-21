@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MaximBorov/mesto.git"
+    "url": "git+https://github.com/MaximSinyukov/mesto.git"
   },
   "author": "Maxim Sinyukov",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MaximBorov/mesto/issues"
+    "url": "https://github.com/MaximSinyukov/mesto/issues"
   },
-  "homepage": "https://github.com/MaximBorov/mesto#readme",
+  "homepage": "https://github.com/MaximSinyukov/mesto#readme",
   "dependencies": {
     "core-js": "^3.6.5"
   },
